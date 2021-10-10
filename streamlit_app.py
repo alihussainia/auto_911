@@ -13,9 +13,9 @@ def main():
         page_icon="models/assets/logo.png",  # String, anything supported by st.image, or None.
     )
     st.title("Auto911 Platform")
-    """Please enter your problem below"""
+    """Let AI help you!"""
 
-    inp = st.text_area(max_chars=2000, height=150)
+    inp = st.text_area("Please enter your problem here",max_chars=2000, height=150)
 
     response = None
     with st.form(key="inputs"):
