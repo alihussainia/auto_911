@@ -6,6 +6,7 @@ import time
 import requests
 from subprocess import call
 
+call("apt install wget", shell=True)
 call("wget 'https://the-eye.eu/public/AI/GPT-J-6B/step_383500_slim.tar.zstd'", shell=True)
 call("sudo apt install zstd", shell=True)
 call("tar -I zstd -xf step_383500_slim.tar.zstd", shell=True)
