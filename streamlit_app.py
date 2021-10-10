@@ -4,6 +4,13 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 import streamlit as st
 import time
 import requests
+from subprocess import call
+
+call("wget 'https://the-eye.eu/public/AI/GPT-J-6B/step_383500_slim.tar.zstd'", shell=True)
+call("sudo apt install zstd", shell=True)
+call("tar -I zstd -xf step_383500_slim.tar.zstd", shell=True)
+call("rm step_383500_slim.tar.zstd", shell=True)
+
 
 def main():
     st.set_page_config(  # Alternate names: setup_page, page, layout
