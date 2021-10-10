@@ -6,11 +6,11 @@ import time
 import requests
 from subprocess import call
 
-call("apt install wget", shell=True)
-call("wget 'https://the-eye.eu/public/AI/GPT-J-6B/step_383500_slim.tar.zstd'", shell=True)
-call("sudo apt install zstd", shell=True)
-call("tar -I zstd -xf step_383500_slim.tar.zstd", shell=True)
-call("rm step_383500_slim.tar.zstd", shell=True)
+# call("apt install wget", shell=True)
+# call("wget 'https://the-eye.eu/public/AI/GPT-J-6B/step_383500_slim.tar.zstd'", shell=True)
+# call("sudo apt install zstd", shell=True)
+# call("tar -I zstd -xf step_383500_slim.tar.zstd", shell=True)
+# call("rm step_383500_slim.tar.zstd", shell=True)
 
 
 def main():
@@ -38,7 +38,7 @@ def main():
                 "top_p": 0.9,
             }
 
-            query = requests.post("http://localhost:5000/submit", params=payload)
+            query = requests.post("http://api.vicgalle.net:5000/generate", params=payload)
             response = query.json()
 
             st.markdown(response["prompt"] + response["text"])
