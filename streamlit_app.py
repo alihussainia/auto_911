@@ -44,7 +44,7 @@ def main():
 
 
 
-    inp = st.text_area("Please enter your problem here",ex_questions,max_chars=2000, height=150)
+    inp = st.text_area("Please enter your problem here", max_chars=2000, height=150)
 
     response = None
     with st.form(key="inputs"):
