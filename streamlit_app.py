@@ -17,26 +17,26 @@ def main():
     """Let AI help you!"""
 
     ex_questions = ["""
-    Tweet: "My father is having chest pain"
-Sentiment: Medical
+    sequence: "My father is having chest pain"
+labels: Medical
 ###
-Tweet: "The neighbor is punching someone in his front yard"
-Sentiment: Police
+sequence: "The neighbor is punching someone in his front yard"
+labels: Police
 ###
-Tweet: "I just witnessed an accident"
-Sentiment: Medical
+sequence: "I just witnessed an accident"
+labels: Medical
 ###
-Tweet: "My mother just collapsed"
-Sentiment: Medical
+sequence: "My mother just collapsed"
+labels: Medical
 ###
-Tweet: "I see smoke coming out of my neighbors house"
-Sentiment: Fire
+sequence: "I see smoke coming out of my neighbors house"
+labels: Fire
 ###
-Tweet: "Flames are rising out of the building?"
-Sentiment: Fire
+sequence: "Flames are rising out of the building?"
+labels: Fire
 ###
-Tweet: "I can see a man stealing the toyota corola car"
-Sentiment: Police
+sequence: "I can see a man stealing the toyota corola car"
+labels: Police
 ###
 """,
     ]
@@ -59,22 +59,8 @@ Sentiment: Police
             query = requests.post("http://api.vicgalle.net:5000/classify/", params=payload)
             response = query.json()
 
-            st.markdown(response["prompt"] + response["text"])
+            st.markdown(response["text"]) #response["prompt"] + 
             st.text(f"Replied in {response['compute_time']:.3} s.")
-
-    if False:
-        col1, col2, *rest = st.beta_columns([1, 1, 10, 10])
-
-        def on_click_good():
-            response["rate"] = "good"
-            print(response)
-
-        def on_click_bad():
-            response["rate"] = "bad"
-            print(response)
-
-        col1.form_submit_button("👍", on_click=on_click_good)
-        col2.form_submit_button("👎", on_click=on_click_bad)
 
     st.text("App developed with ❤️ by @alihussainia")
 
