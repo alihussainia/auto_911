@@ -42,61 +42,61 @@ def main():
 #     ]
 
 
-import requests
 
-inp = st.text_area("Please enter your problem here",ex_questions,max_chars=2000, height=150)
 
-response = None
-with st.form(key="inputs"):
-    submit_button = st.form_submit_button(label="Submit!")
+    inp = st.text_area("Please enter your problem here",ex_questions,max_chars=2000, height=150)
 
-    if submit_button:
+    response = None
+    with st.form(key="inputs"):
+        submit_button = st.form_submit_button(label="Submit!")
 
-        # payload = {
-        #     "context": inp+ex_questions[0],
-        #     "token_max_length": 50,
-        #     "temperature": 0.35,
-        #     "top_p": 0.9,
-        # }
+        if submit_button:
 
-        payload = { 
+            # payload = {
+            #     "context": inp+ex_questions[0],
+            #     "token_max_length": 50,
+            #     "temperature": 0.35,
+            #     "top_p": 0.9,
+            # }
 
-            0:{"sequence" : "My father is having chest pain", 
-            "labels" : "Medical"},
-            
-            1:{"sequence" : "The neighbor is punching someone in his front yard", 
-            "labels" : "Police"},
-            
-            2:{"sequence" : "I just witnessed an accident", 
-            "labels" : "Medical"},
-            
-            3:{"sequence" : "My father just collapsed", 
-            "labels" : "Medical"},
-            
-            4:{"sequence" : "I see smoke coming out of my neighbors house", 
-            "labels" : "Fire"},
-            
-            5:{"sequence" : "Flames are rising out of the building?", 
-            "labels" : "Fire"},
+            payload = { 
 
-            6:{"sequence" : "I can see a man stealing the toyota corola car",
-            "labels" : "Police"},
-            
-            7:{}
-            }
+                0:{"sequence" : "My father is having chest pain", 
+                "labels" : "Medical"},
+                
+                1:{"sequence" : "The neighbor is punching someone in his front yard", 
+                "labels" : "Police"},
+                
+                2:{"sequence" : "I just witnessed an accident", 
+                "labels" : "Medical"},
+                
+                3:{"sequence" : "My father just collapsed", 
+                "labels" : "Medical"},
+                
+                4:{"sequence" : "I see smoke coming out of my neighbors house", 
+                "labels" : "Fire"},
+                
+                5:{"sequence" : "Flames are rising out of the building?", 
+                "labels" : "Fire"},
 
-        payload[7] = {"sequence" : inp,
-        "labels" : " "}
+                6:{"sequence" : "I can see a man stealing the toyota corola car",
+                "labels" : "Police"},
+                
+                7:{}
+                }
 
-        response = requests.post("http://api.vicgalle.net:5000/classify", params=payload).json()
-        # print(response)
+            payload[7] = {"sequence" : inp,
+            "labels" : " "}
 
-        # query = requests.post("http://api.vicgalle.net:5000/classify/", params=payload)
-        # response = query.json()
+            response = requests.post("http://api.vicgalle.net:5000/classify", params=payload).json()
+            # print(response)
 
-        st.markdown(response["labels"]) # ["prompt"] + response["text"]
+            # query = requests.post("http://api.vicgalle.net:5000/classify/", params=payload)
+            # response = query.json()
 
-st.text("App developed with ❤️ by @alihussainia")
+            st.markdown(response["labels"]) # ["prompt"] + response["text"]
+
+    st.text("App developed with ❤️ by @alihussainia")
 
 
 if __name__ == "__main__":
