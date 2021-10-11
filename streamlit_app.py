@@ -17,30 +17,28 @@ def main():
     """Let AI help you!"""
 
     ex_questions = ["""
-Q: "My father is having chest pain"\n
-A: Tell me exactly what happened\n
-###\n
-Q: "The neighbor is punching someone in his front yard"\n
-A: Tell me exactly what happened\n
-###\n
-Q: "My mother just collapsed"\n
-A: Tell me exactly what happened\n
-###\n
-Q: "I just witnessed an accident"\n
-A: Tell me exactly what happened\n
-###\n
-Q: "I see smoke coming out of my neighbors house"\n
-A: Tell me exactly what happened\n
-###\n
-Q: "Is the patient conscious?"\n
-A: No, he is not\n
-###\n
-Q: "Is the patient breathing?"\n
-A: Yeah, he is breathing\n
-###\n
-
-Q: Fetch the three max salaries from the Worker table;\n
-A:""",
+    Tweet: "My father is having chest pain"
+Sentiment: Medical
+###
+Tweet: "The neighbor is punching someone in his front yard"
+Sentiment: Police
+###
+Tweet: "I just witnessed an accident"
+Sentiment: Medical
+###
+Tweet: "My mother just collapsed"
+Sentiment: Medical
+###
+Tweet: "I see smoke coming out of my neighbors house"
+Sentiment: Fire
+###
+Tweet: "Flames are rising out of the building?"
+Sentiment: Fire
+###
+Tweet: "I can see a man stealing the toyota corola car"
+Sentiment: Police
+###
+""",
     ]
 
     inp = st.text_area("Please enter your problem here",ex_questions,max_chars=2000, height=150)
@@ -52,7 +50,7 @@ A:""",
         if submit_button:
 
             payload = {
-                "context": inp,
+                "context": inp+ex_questions,
                 "token_max_length": 50,
                 "temperature": 0.35,
                 "top_p": 0.9,
