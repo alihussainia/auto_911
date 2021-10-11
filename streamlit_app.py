@@ -56,7 +56,7 @@ Sentiment: Police
                 "top_p": 0.9,
             }
 
-            query = requests.post("http://api.vicgalle.net:5000/generate", params=payload)
+            query = requests.post("http://api.vicgalle.net:5000/classify", params=payload)
             response = query.json()
 
             st.markdown(response["prompt"] + response["text"])
