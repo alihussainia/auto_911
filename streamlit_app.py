@@ -50,7 +50,7 @@ Sentiment: Police
         if submit_button:
 
             payload = {
-                "context": inp+ex_questions,
+                "context": inp+ex_questions[0],
                 "token_max_length": 50,
                 "temperature": 0.35,
                 "top_p": 0.9,
