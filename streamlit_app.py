@@ -59,7 +59,7 @@ labels: Police
             query = requests.post("http://api.vicgalle.net:5000/classify/", params=payload)
             response = query.json()
 
-            st.markdown(response["text"]) #response["prompt"] + 
+            st.markdown(response) # ["prompt"] + response["text"]
             st.text(f"Replied in {response['compute_time']:.3} s.")
 
     st.text("App developed with ❤️ by @alihussainia")
