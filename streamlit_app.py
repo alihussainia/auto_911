@@ -82,12 +82,12 @@ with st.form(key="inputs"):
             6:{"sequence" : "I can see a man stealing the toyota corola car",
             "labels" : "Police"},
             
-            7:
+            7:{}
             }
 
         payload[7] = {"sequence" : inp,
         "labels" : " "}
-        
+
         response = requests.post("http://api.vicgalle.net:5000/classify", params=payload).json()
         # print(response)
 
