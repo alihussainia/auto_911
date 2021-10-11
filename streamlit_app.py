@@ -18,25 +18,25 @@ def main():
 
     ex_questions = ["""
     sequence: "My father is having chest pain"
-labels: Medical
+labels: ["Medical"]
 ###
 sequence: "The neighbor is punching someone in his front yard"
-labels: Police
+labels: ["Police"]
 ###
 sequence: "I just witnessed an accident"
-labels: Medical
+labels: ["Medical"]
 ###
 sequence: "My mother just collapsed"
-labels: Medical
+labels: ["Medical"]
 ###
 sequence: "I see smoke coming out of my neighbors house"
-labels: Fire
+labels: ["Fire"]
 ###
 sequence: "Flames are rising out of the building?"
-labels: Fire
+labels: ["Fire"]
 ###
 sequence: "I can see a man stealing the toyota corola car"
-labels: Police
+labels: ["Police"]
 ###
 """,
     ]
@@ -60,7 +60,6 @@ labels: Police
             response = query.json()
 
             st.markdown(response) # ["prompt"] + response["text"]
-            st.text(f"Replied in {response['compute_time']:.3} s.")
 
     st.text("App developed with ❤️ by @alihussainia")
 
