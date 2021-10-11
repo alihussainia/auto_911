@@ -59,34 +59,31 @@ def main():
             #     "top_p": 0.9,
             # }
 
-            payload = { 
+            payload = { "sequence" : """My father is having chest pain \n 
+                The neighbor is punching someone in his front yard \n 
+                "I just witnessed an accident \n
+                My father just collapsed \n
+                "Flames are rising out of the building?"
+                """, 
+                "labels" : ["Medical","Police","Medical","Medical","Fire"]},
+               
+                
+                # 3:{"sequence" : "My father just collapsed", 
+                # "labels" : "Medical"},
+                
+                # 4:{"sequence" : "I see smoke coming out of my neighbors house", 
+                # "labels" : "Fire"},
+                
+                # 5:{"sequence" : "Flames are rising out of the building?", 
+                # "labels" : "Fire"},
 
-                0:{"sequence" : "My father is having chest pain", 
-                "labels" : "Medical"},
+                # 6:{"sequence" : "I can see a man stealing the toyota corola car",
+                # "labels" : "Police"},
                 
-                1:{"sequence" : "The neighbor is punching someone in his front yard", 
-                "labels" : "Police"},
-                
-                2:{"sequence" : "I just witnessed an accident", 
-                "labels" : "Medical"},
-                
-                3:{"sequence" : "My father just collapsed", 
-                "labels" : "Medical"},
-                
-                4:{"sequence" : "I see smoke coming out of my neighbors house", 
-                "labels" : "Fire"},
-                
-                5:{"sequence" : "Flames are rising out of the building?", 
-                "labels" : "Fire"},
+                # 7:{}
+                # }
 
-                6:{"sequence" : "I can see a man stealing the toyota corola car",
-                "labels" : "Police"},
-                
-                7:{}
-                }
-
-            payload[7] = {"sequence" : inp,
-            "labels" : " "}
+            payload["sequence"] : payload["sequence"]+inp
 
             response = requests.post("http://api.vicgalle.net:5000/classify", params=payload).json()
             # print(response)
