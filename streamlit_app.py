@@ -4,13 +4,6 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 import streamlit as st
 import time
 import requests
-from subprocess import call
-
-# call("apt install wget", shell=True)
-# call("wget 'https://the-eye.eu/public/AI/GPT-J-6B/step_383500_slim.tar.zstd'", shell=True)
-# call("sudo apt install zstd", shell=True)
-# call("tar -I zstd -xf step_383500_slim.tar.zstd", shell=True)
-# call("rm step_383500_slim.tar.zstd", shell=True)
 
 
 def main():
@@ -23,7 +16,34 @@ def main():
     st.title("Auto911 Platform")
     """Let AI help you!"""
 
-    inp = st.text_area("Please enter your problem here",max_chars=2000, height=150)
+    ex_questions = ["""
+Q: "My father is having chest pain"\n
+A: Tell me exactly what happened\n
+###\n
+Q: "The neighbor is punching someone in his front yard"\n
+A: Tell me exactly what happened\n
+###\n
+Q: "My mother just collapsed"\n
+A: Tell me exactly what happened\n
+###\n
+Q: "I just witnessed an accident"\n
+A: Tell me exactly what happened\n
+###\n
+Q: "I see smoke coming out of my neighbors house"\n
+A: Tell me exactly what happened\n
+###\n
+Q: "Is the patient conscious?"\n
+A: No, he is not\n
+###\n
+Q: "Is the patient breathing?"\n
+A: Yeah, he is breathing\n
+###\n
+
+Q: Fetch the three max salaries from the Worker table;\n
+A:""",
+    ]
+
+    inp = st.text_area("Please enter your problem here",ex_questions,max_chars=2000, height=150)
 
     response = None
     with st.form(key="inputs"):
