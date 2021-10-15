@@ -12,9 +12,9 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-st.set_page_config(page_title="Auto911 AI based Emergency Response Application", page_icon="pill", layout='centered', initial_sidebar_state='auto', menu_items=None)
+st.set_page_config(page_title="Auto911", page_icon="pill", layout='centered', initial_sidebar_state='auto', menu_items=None)
 
-st.title("Auto 911 App")
+st.title("Auto911 AI based Emergency Response Application")
 st.write("A web app that answers your 911 queries using AI")
 
 inp = st.text_area("Please enter your problem here", max_chars=2000, height=150)
