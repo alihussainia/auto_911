@@ -12,10 +12,7 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-#menu = ["Home","About"]
-
-
-st.set_page_config(page_title="Auto 911 App", page_icon="pill", layout='centered', initial_sidebar_state='auto', menu_items=None)
+st.set_page_config(page_title="Auto911 AI based Emergency Response Application", page_icon="pill", layout='centered', initial_sidebar_state='auto', menu_items=None)
 
 st.title("Auto 911 App")
 st.write("A web app that answers your 911 queries using AI")
@@ -55,12 +52,6 @@ response = None
 submit_button = st.button('Help!')
 payload={}
 if submit_button and inp=="":
-  # payload = {
-  #     "context": context,
-  #     "token_max_length": words,
-  #     "temperature": 1.0,
-  #     "top_p": 0.9,
-  # }
   st.write("Please enter your problem above")
 
 elif submit_button and inp!="":
@@ -72,7 +63,6 @@ elif submit_button and inp!="":
   }
 
   response = requests.post("http://api.vicgalle.net:5000/generate", params=payload).json()
-  #print(response['text'])
 
   st.markdown(response["text"]) 
 
