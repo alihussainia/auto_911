@@ -15,7 +15,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 #menu = ["Home","About"]
 
 
-st.set_page_config(page_title="Auto 911 App", page_icon="models/assets/logo.png", layout='centered', initial_sidebar_state='auto', menu_items=None)
+st.set_page_config(page_title="Auto 911 App", page_icon="pill", layout='centered', initial_sidebar_state='auto', menu_items=None)
 
 st.title("Auto 911 App")
 st.write("A web app that answers your 911 queries using AI")
