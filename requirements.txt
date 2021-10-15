@@ -1,14 +1,14 @@
-jax==0.2.12
-optax==0.0.6
-transformers~=4.4.2
-git+https://github.com/kingoflolz/mesh-transformer-jax.git#egg=mesh-transformer
-smart_open[gcs]
-dm-haiku
-einops~=0.3.0
-ray
-fastapi
-uvicorn
-streamlit~=0.84.0
+# jax==0.2.12
+# optax==0.0.6
+# transformers~=4.4.2
+# git+https://github.com/kingoflolz/mesh-transformer-jax.git#egg=mesh-transformer
+# smart_open[gcs]
+# dm-haiku
+# einops~=0.3.0
+# ray
+# fastapi
+# uvicorn
+streamlit
 requests
 
-#Run this file with - pip3 install -r requirements.txt
+# Run this file with - pip3 install -r requirements.txt
