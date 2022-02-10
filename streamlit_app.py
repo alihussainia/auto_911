@@ -62,7 +62,7 @@ elif submit_button and inp!="":
       "top_p": 0.9,
   }
 
-  response = requests.post("http://api.vicgalle.net:5000/generate", params=payload).json()
+  response = requests.post("http://api.vicgalle.net:8000/generate", params=payload).json()
 
   st.markdown(response["text"]) 
 
