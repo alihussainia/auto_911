@@ -48,6 +48,7 @@ A: Collect your personal belongings (ie. purse, briefcase, etc.) and take them w
 """
 
 response = None
+len_payload = len(context+inp)	
 
 submit_button = st.button('Help!')
 payload={}
@@ -57,14 +58,14 @@ if submit_button and inp=="":
 elif submit_button and inp!="":
   payload = {
       "inputs": context+inp,
-      "token_max_length": 200,
-      "temperature": 1.0,
-      "top_p": 0.9,
+      "token_max_length": 1000,
+#       "temperature": 1.0,
+#       "top_p": 0.9,
   }
  
   response = requests.post(API_URL, headers=headers, json=payload).json()
 
-  st.markdown(response[0]['generated_text']) 
+  st.markdown(response[0]['generated_text'][len_payload:) 
 
 
 st.text("App developed with ❤️ by @alihussainia")
