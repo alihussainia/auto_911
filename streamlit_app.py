@@ -62,7 +62,8 @@ if submit_button and inp=="":
 
 elif submit_button and inp!="":
   payload = {
-      "inputs": random_context+inp
+      "inputs": random_context+inp,
+      "max_length": len_payload + 200
   }
  
   response = requests.post(API_URL, headers=headers, json=payload).json()
