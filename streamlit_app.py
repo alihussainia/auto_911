@@ -65,7 +65,7 @@ elif submit_button and inp!="":
  
   response = requests.post(API_URL, headers=headers, json=payload).json()
 
-  st.markdown(response[0]['generated_text'][len_payload:) 
+  st.markdown(response[0]['generated_text'][len_payload:]) 
 
 
 st.text("App developed with ❤️ by @alihussainia")
