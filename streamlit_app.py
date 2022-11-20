@@ -9,7 +9,8 @@ import requests
 
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-
+API_URL = st.secrets["API_URL"]
+headers = st.secrets["headers"]
 
 st.set_page_config(page_title="Auto911", page_icon="pill", layout='centered', initial_sidebar_state='auto', menu_items=None)
 
@@ -52,9 +53,6 @@ submit_button = st.button('Help!')
 payload={}
 if submit_button and inp=="":
   st.write("Please enter your problem above")
-
-API_URL = st.secrets["API_URL"]
-headers = st.secrets["headers"]
 
 elif submit_button and inp!="":
   payload = {
