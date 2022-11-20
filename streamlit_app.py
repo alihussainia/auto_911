@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon October 15 2021
 @author: Muhammad Ali
 @github: @alihussainia
 """
@@ -54,17 +53,20 @@ payload={}
 if submit_button and inp=="":
   st.write("Please enter your problem above")
 
+API_URL = st.secrets["API_URL"]
+headers = st.secrets["headers"]
+
 elif submit_button and inp!="":
   payload = {
-      "context": context+inp,
-      "token_max_length": 100,
+      "inputs": context+inp,
+      "token_max_length": 200,
       "temperature": 1.0,
       "top_p": 0.9,
   }
+ 
+  response = requests.post(API_URL, headers=headers, json=payload).json()
 
-  response = requests.post("http://api.vicgalle.net:5000/generate", params=payload).json()
-
-  st.markdown(response["text"]) 
+  st.markdown(response[0]['generated_text']) 
 
 
 st.text("App developed with ❤️ by @alihussainia")
